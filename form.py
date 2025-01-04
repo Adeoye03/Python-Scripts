@@ -27,8 +27,8 @@ class SimpleForm:
 
         # Comments field
         tk.Label(root, text="Comments:").pack()
-        self.comment_entry = tk.Entry(root, width=30, height=4)
-        self.comment_entry.pack(pady=5)
+        self.comment_text = tk.Text(root, width=30, height=4)
+        self.comment_text.pack(pady=5)
 
         # Submit button
         tk.Button(root, text="submit", command=self.submit_form).pack(pady=20)
@@ -38,7 +38,7 @@ class SimpleForm:
         name = self.name_entry.get()
         email = self.email_entry.get()
         age = self.age_entry.get()
-        comments = self.comment_entry.get()
+        comments = self.comment_text.get("1.0", tk.END)
 
         # Basic validation
         if not name or not email or not age:
@@ -53,9 +53,9 @@ class SimpleForm:
         self.name_entry.delete(0, tk.END)
         self.email_entry.delete(0, tk.END)
         self.age_entry.delete(0, tk.END)
-        self.comment_entry.delete("1.0", tk.END)
+        self.comment_text.delete("1.0", tk.END)
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     root = tk.Tk()
     app = SimpleForm(root)
     root.mainloop()
