@@ -56,6 +56,6 @@ class SimpleForm:
         self.comment_entry.delete("1.0", tk.END)
 
 if __name__ == "_main_":
-    root = tk.Window()
+    root = tk.Tk()
     app = SimpleForm(root)
     root.mainloop()
